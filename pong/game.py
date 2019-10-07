@@ -2,8 +2,8 @@ import pygame as pg
 import random
 import time
 
-win_height = 400
-win_width = 300
+win_height = 450
+win_width = 400
 
 Display = (win_width, win_height)
 bg_color = '#004400'
@@ -20,7 +20,7 @@ def main():
 	pt = False
 
 	Ball = ball(150, 20)
-	hero = Player(150, 350)
+	hero = Player(150, 420)
 	global bill
 	fal = 0
 	f1 = pg.font.Font(None, 30)
@@ -35,48 +35,51 @@ def main():
 
 
 
-	level = ['------------------------------',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-   --                       -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                   --       -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-       --                   -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -']
+	level = ['----------------------------------------',
+			'-                                      -',
+			'-                        --            -',
+			'-                       --             -',
+			'-        -              -       -      -',
+			'-       -                       -      -',
+			'-      -                        -      -',
+			'-                               -      -',
+			'-               -               -      -',
+			'-                -                     -',
+			'-                 -                    -',
+			'-                  -                   -',
+			'-                                      -',
+			'-                                      -',
+			'-   --                                 -',
+			'-                                      -',
+			'-            ---                       -',
+			'-                                      -',
+			'-                                      -',
+			'-                              -       -',
+			'-                             -        -',
+			'-                            -         -',
+			'-      -                     -         -',
+			'-               ----         -         -',
+			'-      -                     -         -',
+			'-                            -         -',
+			'-      -                               -',
+			'-                                      -',
+			'-                                      -',
+			'-                                      -',
+			'-                                      -',
+			'-                                      -',
+			'-                                      -',
+			'-                                      -',
+			'-                                      -',
+			'-                                      -',
+			'-                                      -',
+			'-                                      -',
+			'-                                      -',
+			'-                                      -',
+			'-                                      -',
+			'---                                  ---',
+			'-                                      -',
+			'-                                      -',
+			'-                                      -']
 	# f = pg.font.Font(None, 30)
 	# bill2 = str('Your score: ' + str(bill))
 	# tex = f.render(bill2, 1, (180, 250, 250), (150, 150, 150))
@@ -102,7 +105,7 @@ def main():
 	while 1==1:
 		timer.tick(60)
 
-		elif pg.sprite.collide_rect(Ball, hero):
+		if pg.sprite.collide_rect(Ball, hero):
 				pt = True
 				bill +=5
 		else:
@@ -129,7 +132,7 @@ def main():
 		entities.draw(screen)
 		
 		text1 = f1.render(str(bill), 1, (180, 250, 250), (150, 150, 150))
-		screen.blit(text1, (264, 10))
+		screen.blit(text1, (10, 10))
 		
 		pg.display.update()
 
@@ -162,12 +165,12 @@ class ball(pg.sprite.Sprite):
 			self.rect.bottom = 350
 
 			self.onGround = True
-			self.yvel = -14
+			self.yvel = -12
 			if self.xvel == 0:
-				self.xvel = random.randint(-5, 5)
+				self.xvel = random.randint(-10, 10)
 			else:
 				self.xvel = self.xvel
-		if self.rect.bottom > 400:
+		if self.rect.bottom > 500:
 			#time.sleep(10)
 			self.rect.x = 150
 			self.rect.y = 20
@@ -190,7 +193,7 @@ class ball(pg.sprite.Sprite):
 					if yvel > 0:
 						self.rect.bottom = p.rect.top
 						self.onGround = True
-						self.yvel = -12
+						self.yvel = -self.yvel
 						if self.xvel == 0:
 							self.xvel = random.randint(-5, 5)
 						else:
