@@ -6,7 +6,7 @@ win_height = 450
 win_width = 400
 
 Display = (win_width, win_height)
-bg_color = '#004400'
+bg_color = '#86a0e4'
 bill = 1
 
 
@@ -144,8 +144,8 @@ class ball(pg.sprite.Sprite):
 		self.xvel = 0
 		self.yvel = 0
 		self.onGround = False
-		self.image = pg.Surface((10, 10))
-		self.image.fill(pg.Color('#888888'))
+		self.image = pg.image.load('ballguy.png')#pg.Surface((10, 10))
+		#self.image.fill(pg.Color('#888888'))
 		self.rect = pg.Rect(x, y, 10, 10)
 
 	def update(self, platforms, pt):
@@ -165,7 +165,7 @@ class ball(pg.sprite.Sprite):
 			self.rect.bottom = 350
 
 			self.onGround = True
-			self.yvel = -12
+			self.yvel = -15
 			if self.xvel == 0:
 				self.xvel = random.randint(-10, 10)
 			else:
@@ -193,7 +193,7 @@ class ball(pg.sprite.Sprite):
 					if yvel > 0:
 						self.rect.bottom = p.rect.top
 						self.onGround = True
-						self.yvel = -self.yvel
+						self.yvel = -15
 						if self.xvel == 0:
 							self.xvel = random.randint(-5, 5)
 						else:
@@ -211,18 +211,18 @@ class Player(pg.sprite.Sprite):
 		self.yvel = 0
 		self.startX = x
 		self.startY = y
-		self.image = pg.Surface((80, 20))
-		self.image.fill(pg.Color('#888888'))
+		self.image = pg.image.load('player.gif')#Surface((80, 20))
+		#self.image.fill(pg.Color('#888888'))
 		self.rect = pg.Rect(x, y, 80, 20)
 
 	def update(self, left, right, platforms):
 		if left:
 			self.xvel -=  1
-			self.image.fill(pg.Color('#888888'))
+			#self.image.fill(pg.Color('#888888'))
 
 		if right:
 			self.xvel += 1
-			self.image.fill(pg.Color('#888888'))
+			#self.image.fill(pg.Color('#888888'))
 		if not (left or right):
 			self.xvel = 0
 
@@ -249,8 +249,8 @@ PLATFORM_COLOR = "#FF6262"
 class Platform(pg.sprite.Sprite):
 	def __init__(self, x, y):
 		pg.sprite.Sprite.__init__(self)
-		self.image = pg.Surface((pl_wifth, pl_height))
-		self.image.fill(pg.Color(PLATFORM_COLOR))
+		self.image = pg.image.load('p4.gif') #pg.Surface((pl_wifth, pl_height))
+		#self.image.fill(pg.Color(PLATFORM_COLOR))
 		self.rect = pg.Rect(x, y, pl_wifth, pl_height)	
 
 
