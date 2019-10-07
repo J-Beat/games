@@ -7,7 +7,7 @@ win_width = 300
 
 Display = (win_width, win_height)
 bg_color = '#004400'
-bill = 0
+bill = 1
 
 
 def main():
@@ -22,7 +22,7 @@ def main():
 	Ball = ball(150, 20)
 	hero = Player(150, 350)
 	global bill
-	fall = False
+	fal = 0
 	f1 = pg.font.Font(None, 30)
 
 
@@ -49,6 +49,19 @@ def main():
 			'-                            -',
 			'-                            -',
 			'-                            -',
+			'-   --                       -',
+			'-                            -',
+			'-                            -',
+			'-                            -',
+			'-                            -',
+			'-                   --       -',
+			'-                            -',
+			'-                            -',
+			'-                            -',
+			'-                            -',
+			'-                            -',
+			'-                            -',
+			'-       --                   -',
 			'-                            -',
 			'-                            -',
 			'-                            -',
@@ -63,26 +76,15 @@ def main():
 			'-                            -',
 			'-                            -',
 			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'-                            -',
-			'------------------------------']
+			'-                            -']
 	# f = pg.font.Font(None, 30)
 	# bill2 = str('Your score: ' + str(bill))
 	# tex = f.render(bill2, 1, (180, 250, 250), (150, 150, 150))
 	# tex2 = f.render(('OMT?'), 1, (180, 250, 250), (150, 150, 150))
 	# screen.blit(tex, (200, 150))
 	# screen.blit(tex2, (300, 150))
+
+
 
 	x=y=0
 	for row in level:
@@ -100,7 +102,7 @@ def main():
 	while 1==1:
 		timer.tick(60)
 
-		if pg.sprite.collide_rect(Ball, hero):
+		elif pg.sprite.collide_rect(Ball, hero):
 				pt = True
 				bill +=5
 		else:
@@ -118,6 +120,7 @@ def main():
 			if i.type == pg.KEYUP and i.key == pg.K_RIGHT:
 				right = False
 			
+
 
 		screen.blit(bg, (0, 0))
 		hero.update(left, right, platforms)
@@ -154,14 +157,24 @@ class ball(pg.sprite.Sprite):
 
 	def collide(self, xvel, yvel, platforms, pt):
 		global bill
-		global fall
+		global fal
 		if pt == True:
 			self.rect.bottom = 350
 
 			self.onGround = True
 			self.yvel = -14
-			if xvel == 0:
+			if self.xvel == 0:
 				self.xvel = random.randint(-5, 5)
+			else:
+				self.xvel = self.xvel
+		if self.rect.bottom > 400:
+			#time.sleep(10)
+			self.rect.x = 150
+			self.rect.y = 20
+			self.xvel = 0
+			self.yvel = 0
+			bill = 0
+			fal = 1
 
 		else:
 			for p in platforms:
@@ -176,10 +189,13 @@ class ball(pg.sprite.Sprite):
 
 					if yvel > 0:
 						self.rect.bottom = p.rect.top
-						#self.onGround = True
-						self.yvel = 0
-						self.xvel = 0
-						bill = 0
+						self.onGround = True
+						self.yvel = -12
+						if self.xvel == 0:
+							self.xvel = random.randint(-5, 5)
+						else:
+							self.xvel = self.xvel
+						
 					if yvel < 0:
 						self.rect.top = p.rect.bottom
 						self.yvel = 0
