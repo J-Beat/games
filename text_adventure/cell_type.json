@@ -1,0 +1,37 @@
+{
+    "forest":{
+        "type":"forest",
+        "description":"Вы очутились в лесу. Здесь светло и тихо, слышен только шебет птиц и журчание ручья вдалеке.",
+        "color":"forest.png"
+    },
+    "field":{
+        "type":"field",
+        "description":"Вы вышли на поле. Здесь ветрено и свежо.",
+        "color":"yellow"
+    },
+    "river":{
+        "type":"river",
+        "description":"Вы вышли к реке",
+        "picture":"river_icon.png"
+    },
+    "hills":{
+        "type":"hills",
+        "description":"Вы вышли к холмам",
+        "color":"green"
+    },
+    "swamp":{
+        "type":"swamp",
+        "description":"Вы вышли к болоту",
+        "color":"green"
+    },
+    "road":{
+        "type":"road",
+        "description":"Вы вышли на дорогу",
+        "color":"brown"
+    },
+    "mountains":{
+        "type":"mountains",
+        "description":"Вы вышли к горам",
+        "color":"grey"
+    }
+}
