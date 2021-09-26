@@ -2,36 +2,36 @@
     "forest":{
         "type":"forest",
         "description":"Вы очутились в лесу. Здесь светло и тихо, слышен только шебет птиц и журчание ручья вдалеке.",
-        "color":"forest.png"
+        "picture":"D:/Python/games/text_adventure/forest.png"
     },
     "field":{
         "type":"field",
         "description":"Вы вышли на поле. Здесь ветрено и свежо.",
-        "color":"yellow"
+        "picture":"D:/Python/games/text_adventure/field.png"
     },
     "river":{
         "type":"river",
         "description":"Вы вышли к реке",
-        "picture":"river_icon.png"
+        "picture":"D:/Python/games/text_adventure/river_icon.png"
     },
     "hills":{
         "type":"hills",
         "description":"Вы вышли к холмам",
-        "color":"green"
+        "picture":"D:/Python/games/text_adventure/hills.png"
     },
     "swamp":{
         "type":"swamp",
         "description":"Вы вышли к болоту",
-        "color":"green"
+        "picture":"D:/Python/games/text_adventure/swamp.png"
     },
     "road":{
         "type":"road",
         "description":"Вы вышли на дорогу",
-        "color":"brown"
+        "picture":"brown"
     },
     "mountains":{
         "type":"mountains",
         "description":"Вы вышли к горам",
-        "color":"grey"
+        "picture":"D:/Python/games/text_adventure/mountains.png"
     }
 }

@@ -3,18 +3,29 @@ from cell import Cell
 from bezier import *
 from random import choice, randint, uniform
 from river import River
+from LineBezierCreator import LineCreator
+from MassiveCreator import MassiveCreator
+from datetime import datetime as dt 
 
 
 class MapCreator:
     def __init__(self, size):
         self.size = size
-        self.map = [['_' for c in range(self.size+1)] for r in range(self.size+1)]
+        self.map = [['_' for _ in range(self.size+1)] for _ in range(self.size+1)]
         river = River()
-        self.map = river.river_creator(self.size, self.map)
-        # print(self.map)
+        massive = MassiveCreator()
+        massive_size =  massive.get_count_free_cell(self.map)
+        print(massive_size)
+        self.map = LineCreator().line_creator(self.size, self.map, river)
+        self.map = massive.get_massives(self.map, massive_size*0.3, 'field')
+        self.map = massive.get_massives(self.map, massive_size*0.3, 'forest')
+        self.map = massive.get_massives(self.map, massive_size*0.2, 'hills')
+        self.map = massive.get_massives(self.map, massive_size*0.1, 'mountains')
+        self.map = massive.get_massives(self.map, massive_size*0.1, 'swamp')
+        self.map = massive.fill_free_cells(self.map)
         pc.map_paint(self.map)
 
 
-
-MapCreator(10)
-
+t = dt.now()
+MapCreator(50)
+print(dt.now()-t)
