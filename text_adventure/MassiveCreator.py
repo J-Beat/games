@@ -1,6 +1,7 @@
 from random import randint, choice, shuffle
 import json
 from cell import Cell
+import os
 
 class MassiveCreator:
     def __init__(self):
@@ -9,7 +10,8 @@ class MassiveCreator:
         # print('block_size = ', self.blocks_size)
 
     def define_type(self, type):
-        with open("D:/Python/games/text_adventure/cell_type.json", "rb") as read_file:
+        path = os.getcwd().replace('\\', '/')
+        with open(f"{path}/games/text_adventure/cell_type.json", "rb") as read_file:
             data = json.load(read_file)
         cell_type = data[type]
         return cell_type

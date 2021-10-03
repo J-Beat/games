@@ -13,29 +13,13 @@ from PIL import Image, ImageDraw
 
 def map_paint(map):
     img = Image.new('RGBA', (len(map)*40, len(map)*40), 'grey')
-    idraw = ImageDraw.Draw(img)
     for row in map:
-        
-        # for col in row:
-        #     x1 = col.location[1]*40
-        #     x2 = x1+40
-        #     y1 = col.location[0]*40
-        #     y2 = y1+40
-        #     # print(x1, y1, x2, y2)
-        #     # if col.opened:
-        #     idraw.rectangle((x1, y1, x2, y2), fill=col.picture)
-
         for col in row:
             if col!='_':
-                # print(col)
                 x1 = col.location[1]*40
-                x2 = x1+40
                 y1 = col.location[0]*40
-                y2 = y1+40
-                # print(x1, y1, x2, y2)
-                # if col.opened:
-                img.paste(col.picture, (x1, y1))
-                # idraw.rectangle((x1, y1, x2, y2), fill=col.picture)
-        
-    img.save('map.png')
+                if col.opened:
+                    img.paste(col.picture, (x1, y1))
+    # return img
+    img.save('D:/Python/games/map.png')
         
