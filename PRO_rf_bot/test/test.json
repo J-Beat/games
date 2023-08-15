@@ -1,0 +1,30 @@
+{
+    "main_page":{
+        "text":"Привет! Это тест! Понажимай ка на кнопочки.",
+        "stage":"stage0",
+        "markup":{
+            "button1":{
+                "text":"Первая кнопка",
+                "stage":"stage1",
+                "actions":{
+                    "text":"Ты нажал на первую кнопку",
+                    "markup":{
+                        "button1.1":{
+                            "text":"button_1.1",
+                            "actions":{
+                                "text":"button_1.1 was clicked",
+                                "stage":"stage1.1"
+                            }
+                        },
+                        "button1.2":{
+                            "text":"button1.2",
+                            "actions":{
+                                "text":"button_1.2 was clicked",
+                                "stage":"1.2"
+                            }
+                    }
+                }
+        }
+    }
+}
+}}
